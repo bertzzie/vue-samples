@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Component</title>
+</head>
+<body>
+
+    <div id="component">
+        <custom-component></custom-component>
+
+        <secret-input></secret-input>
+    </div>
+
+    <template id="secretInputTemplate">
+        <div>
+            <input type="button" v-bind:value="secretButtonText" v-on:click="toggleSecretText">
+
+            <p v-if="showSecretText">This is a secret text</p>
+            <p v-else="showSecretText">The world can see this</p>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="component.js"></script>
+</body>
+</html>

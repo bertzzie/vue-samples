@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Binding</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="data-binding">
+        <span v-bind:title="title">This is content</span>
+
+        <br><br>
+
+        <input type="text" v-model="inputData">
+
+        <p>{{ inputData }}</p>
+
+        <input type="button" v-bind:value="buttonText" v-on:click="toggleSecret">
+        <p v-bind:class="secretTextClass">This is a secret text.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="data-binding.js"></script>
+</body>
+</html>

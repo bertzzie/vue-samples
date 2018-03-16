@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Grid</title>
+</head>
+<body>
+<div id="grid">
+    <input type="text"
+           placeholder="Input Nama"
+           v-model="inputNama">
+    <input type="text"
+           placeholder="Input Deskripsi"
+           v-model="inputDeskripsi">
+    <input type="number"
+           placeholder="Jumlah"
+           v-model="inputJumlah">
+    <input type="button"
+           value="Tambahkan!"
+           v-on:click="addItem">
+
+    <br><br><br>
+
+    <input type="search"
+           placeholder="Cari"
+           v-model="inputSearch">
+
+    <table>
+        <thead>
+        <tr>
+            <th v-on:click="sort('name')">Nama</th>
+            <th v-on:click="sort('description')">Deskripsi</th>
+            <th v-on:click="sort('count')">Jumlah</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody v-if="notHaveItems()">
+            <tr>
+                <td colspan="4">Item kosong</td>
+            </tr>
+        </tbody>
+        <tbody v-else="notHaveItems()">
+        <tr v-for="item in renderedItems()">
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.count }}</td>
+            <td>
+                <input type="button"
+                       value="Hapus"
+                       v-on:click="hapus(item.name)">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="grid.js"></script>
+</body>
+</html>
